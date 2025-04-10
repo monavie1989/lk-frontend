@@ -41,7 +41,7 @@ ul.transcriptions li {
   border-radius: 10px;
   max-width: 70%;
   color: #333;
-  font-size: 50px;
+  font-size: 14px;
 }
 ul.transcriptions li.message-assistant {
   background-color: #f1f0f0;
