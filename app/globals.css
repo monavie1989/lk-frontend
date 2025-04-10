@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --lk-va-bar-width: 72px;
+  --lk-control-bar-height: unset;
+}
+
+.agent-visualizer > .lk-audio-bar {
+  width: 72px;
+}
+
+.lk-agent-control-bar {
+  @apply border-t-0 p-0 h-min mr-4;
+}
+
+.lk-disconnect-button {
+  @apply h-[36px] hover:bg-[#6b221a] hover:text-[white] bg-[#31100c] border-[#6b221a];
+}
+
+main.h-full{
+  grid-template-columns: 2fr 1fr;
+}
+
+.sidebar {
+  height: 100%;
+  background: #6f6f6f;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.transcriptions{
+  flex: 1;
+  overflow: auto;
+}
+ul.transcriptions li {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
+  color: #333;
+  font-size: 50px;
+}
+ul.transcriptions li.message-assistant {
+  background-color: #f1f0f0;
+  text-align: right;
+  margin-left: auto;
+}
+ul.transcriptions li.message-user {
+  background-color: #d1e7dd;
+  text-align: left;
+}
+.chatbot-title{
+  display: block;
+  background: #1f8cf9;
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;  
+}
+
+    
