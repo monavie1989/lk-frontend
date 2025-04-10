@@ -36,3 +36,38 @@ You'll also need an agent to speak with. Try our sample voice assistant agent fo
 ## Contributing
 
 This template is open source and we welcome contributions! Please open a PR or issue through GitHub, and don't forget to join us in the [LiveKit Community Slack](https://livekit.io/join-slack)!
+
+# run agent in background mode
+# create sh file for run service
+```console
+sudo vi /var/www/livekit/lk-frontend/start-frontend.sh
+```
+#!/bin/bash
+export NVM_DIR="$HOME/.nvm"
+source "$NVM_DIR/nvm.sh"
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$NVM_DIR/versions/node/v18.17.0/bin:$PATH"
+
+cd /var/www/livekit/lk-frontend
+pnpm dev
+
+# install supervisord
+# create supervisord config
+```console
+sudo vi /etc/supervisor/conf.d/livekit_frontend.conf
+```
+[program:livekit_frontend]
+command=/var/www/livekit/lk-frontend/start-frontend.sh
+directory=/var/www/livekit/lk-frontend
+autostart=true
+autorestart=false
+stdout_logfile=/var/log/livekit_frontend.log
+stderr_logfile=/var/log/livekit_frontend_err.log
+environment=HOME="/home/ubuntu",USER="ubuntu"
+
+
+```console
+sudo supervisorctl reread
+sudo supervisorctl update
+```
